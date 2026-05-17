@@ -458,6 +458,11 @@ nav.visible {
   gap: 5rem;
   align-items: start;
 }
+.about-portrait-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .about-portrait {
   position: relative;
   overflow: hidden;
@@ -1162,8 +1167,13 @@ footer {
 <!-- ABOUT -->
 <section id="about" class="about">
   <div class="about-inner">
-    <div class="about-portrait g-up">
-      <img src="assets/IMG_7366.jpeg" alt="Madame Anaconda" loading="lazy">
+    <div class="about-portrait-col">
+      <div class="about-portrait g-up">
+        <img src="assets/IMG_7366.jpeg" alt="Madame Anaconda" loading="lazy">
+      </div>
+      <blockquote class="about-quote g-up">
+        "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
+      </blockquote>
     </div>
     <div class="about-content">
       <div class="about-left">
@@ -1174,11 +1184,6 @@ footer {
           <p>From underground cabarets to sold-out shows, Madame Anaconda brings the heat, the glamour, and the message: <strong>drag is not a crime, darling.</strong></p>
           <p>Part artist, part activist, all queen — here to entertain, inspire, and remind you the world is better when we let people be beautifully, unapologetically themselves.</p>
         </div>
-      </div>
-      <div class="about-right">
-        <blockquote class="about-quote g-up">
-          "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
-        </blockquote>
         <div class="about-stats g-up">
           <div><span class="stat-value" style="font-size:clamp(2.4rem,4vw,3.4rem)">∞</span><span class="stat-label">Looks Served</span></div>
           <div><span class="stat-value">0</span><span class="stat-label">F*cks Given</span></div>
