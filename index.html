@@ -838,19 +838,19 @@ nav.visible {
   background-clip: text;
 }
 .connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 2rem; }
-.connect-heading-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.3em;
+.queen-tiktok {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0.2em;
 }
 .tiktok-inline {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   color: rgba(245,237,227,0.45);
   text-decoration: none;
   transition: color 0.3s;
-  flex-shrink: 0;
-  font-size: clamp(2.4rem, 7vw, 6rem);
+  -webkit-text-fill-color: initial;
 }
 .tiktok-inline svg {
   width: 0.72em;
@@ -1326,12 +1326,7 @@ footer {
   <div class="connect-layout">
     <div class="connect-inner">
       <span class="section-label g-up">Stay in the Serpent's Circle</span>
-      <div class="connect-heading-row">
-        <h2 class="section-title g-up">Follow the Queen</h2>
-        <a href="https://www.tiktok.com/@madameanaconde" target="_blank" rel="noopener" class="tiktok-inline g-up" aria-label="TikTok">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
-        </a>
-      </div>
+      <h2 class="section-title g-up">Follow the <span class="queen-tiktok">Queen<a href="https://www.tiktok.com/@madameanaconde" target="_blank" rel="noopener" class="tiktok-inline" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg></a></span></h2>
       <p class="connect-sub g-up">Keep up with looks, shows, and statements that matter.</p>
     </div>
     <div class="connect-visual g-up">
