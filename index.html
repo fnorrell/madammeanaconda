@@ -840,7 +840,7 @@ nav.visible {
 .connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 2rem; }
 .connect-heading-row {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.3em;
 }
 .tiktok-inline {
@@ -850,6 +850,11 @@ nav.visible {
   text-decoration: none;
   transition: color 0.3s;
   flex-shrink: 0;
+  font-size: clamp(2.4rem, 7vw, 6rem);
+}
+.tiktok-inline svg {
+  width: 0.72em;
+  height: 0.72em;
 }
 .tiktok-inline:hover { color: var(--gold); }
 .social-grid { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin: 0 auto; }
