@@ -832,40 +832,6 @@ footer {
 .footer-copy { font-style: italic; font-size: 0.72rem; color: rgba(245,237,227,0.28); }
 .footer-heart { color: var(--rose); }
 
-/* ===== SLITHERING ANACONDA ===== */
-.anaconda-wrap {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-.anaconda {
-  position: absolute;
-  bottom: 18%;
-  left: 0;
-  width: 680px;
-  filter: drop-shadow(0 8px 35px rgba(74,157,122,0.45));
-  will-change: transform;
-  opacity: 0.88;
-}
-#snakeScales {
-  animation: scalesMove 1.3s linear infinite;
-}
-@keyframes scalesMove {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: -40; }
-}
-#snakeTongue {
-  animation: tongueFlick 3.6s ease-in-out infinite;
-}
-@keyframes tongueFlick {
-  0%, 78%, 100% { opacity: 1; }
-  83%  { opacity: 0; }
-  89%  { opacity: 1; }
-  95%  { opacity: 0; }
-}
-
 /* ===== GSAP REVEAL TARGETS ===== */
 .g-up { opacity: 0; transform: translateY(48px); }
 
@@ -931,57 +897,6 @@ footer {
     <circle cx="50" cy="0" r="7" fill="rgba(200,65,90,0.55)"/>
     <polygon points="45,400 55,400 50,415" fill="rgba(200,65,90,0.55)"/>
   </svg>
-  <!-- SLITHERING ANACONDA -->
-  <div class="anaconda-wrap" aria-hidden="true">
-    <svg class="anaconda" id="anacondaSvg" viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="#4a9d7a" stop-opacity="0"/>
-          <stop offset="12%"  stop-color="#4a9d7a" stop-opacity="0.45"/>
-          <stop offset="75%"  stop-color="#3d8a68" stop-opacity="0.72"/>
-          <stop offset="100%" stop-color="#2c6650" stop-opacity="0.88"/>
-        </linearGradient>
-        <linearGradient id="bellyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="#c9a84c" stop-opacity="0"/>
-          <stop offset="12%"  stop-color="#c9a84c" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.24"/>
-        </linearGradient>
-      </defs>
-      <!-- Body -->
-      <path d="M 5,60 C 65,8 130,112 195,60 C 260,8 325,112 390,60 C 455,8 520,112 585,60 C 618,30 645,80 668,55"
-        stroke="url(#bodyGrad)" stroke-width="26" stroke-linecap="round" fill="none"/>
-      <!-- Belly stripe -->
-      <path d="M 5,60 C 65,8 130,112 195,60 C 260,8 325,112 390,60 C 455,8 520,112 585,60 C 618,30 645,80 668,55"
-        stroke="url(#bellyGrad)" stroke-width="11" stroke-linecap="round" fill="none"/>
-      <!-- Moving scale pattern -->
-      <path id="snakeScales"
-        d="M 5,60 C 65,8 130,112 195,60 C 260,8 325,112 390,60 C 455,8 520,112 585,60 C 618,30 645,80 668,55"
-        stroke="rgba(0,0,0,0.14)" stroke-width="26" stroke-linecap="round" fill="none"
-        stroke-dasharray="7 13"/>
-      <!-- Neck -->
-      <ellipse cx="672" cy="56" rx="17" ry="15" fill="#2c6650" transform="rotate(-22 672 56)"/>
-      <!-- Head -->
-      <ellipse cx="686" cy="51" rx="19" ry="14" fill="#357055" transform="rotate(-18 686 51)"/>
-      <!-- Snout -->
-      <ellipse cx="700" cy="48" rx="11" ry="10" fill="#3a7a5c" transform="rotate(-12 700 48)"/>
-      <!-- Ridge -->
-      <path d="M 674,46 Q 687,42 699,43" stroke="rgba(0,0,0,0.18)" stroke-width="1.5" fill="none"/>
-      <!-- Eye -->
-      <ellipse cx="682" cy="46" rx="5.5" ry="6.5" fill="#0d1a0f"/>
-      <ellipse cx="682" cy="46" rx="2.2" ry="5.5" fill="#aa3535" opacity="0.75"/>
-      <circle  cx="681" cy="45" r="1.3"  fill="rgba(255,255,255,0.55)"/>
-      <!-- Nostril -->
-      <circle cx="701" cy="46" r="1.8" fill="rgba(0,0,0,0.32)"/>
-      <!-- Jaw line -->
-      <path d="M 673,59 Q 687,65 701,60" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" fill="none"/>
-      <!-- Tongue -->
-      <g id="snakeTongue">
-        <path d="M 703,51 L 718,46 M 718,46 L 724,41 M 718,46 L 724,52"
-          stroke="#c8415a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-      </g>
-    </svg>
-  </div>
-
   <div class="hero-content" id="heroContent">
     <p class="hero-eyebrow">The Serpent Queen Has Arrived</p>
     <span class="hero-crown">👑</span>
@@ -1302,35 +1217,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); lenis.scrollTo(t); }
   });
 });
-
-// ── ANACONDA PATROL ───────────────────────────────────────────────────────
-(function () {
-  const snake = document.getElementById('anacondaSvg');
-  const W = 740;
-
-  // Y weave — independent sine oscillation
-  gsap.to(snake, {
-    y: 24,
-    duration: 3.0,
-    ease: 'sine.inOut',
-    yoyo: true,
-    repeat: -1,
-  });
-
-  // X patrol — linear traverse, pause off-screen right, repeat from left
-  function patrol() {
-    gsap.fromTo(snake,
-      { x: -W },
-      {
-        x: window.innerWidth + W,
-        duration: 18,
-        ease: 'none',
-        onComplete: () => setTimeout(patrol, 1400),
-      }
-    );
-  }
-  patrol();
-})();
 
 // ── EMAIL SIGNUP ──────────────────────────────────────────────────────────
 function handleSignup(btn) {
