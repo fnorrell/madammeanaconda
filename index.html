@@ -732,14 +732,15 @@ nav.visible {
 }
 .social-item:hover { transform: translateY(-10px); }
 .social-icon-wrap {
-  width: 72px; height: 72px;
+  width: 96px; height: 96px;
   border: 1px solid rgba(245,237,227,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
   transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
+.social-icon-wrap svg { color: rgba(245,237,227,0.65); transition: color 0.3s; }
+.social-item:hover .social-icon-wrap svg { color: var(--gold); }
 .social-item:hover .social-icon-wrap {
   border-color: rgba(201,168,76,0.4);
   background: rgba(201,168,76,0.05);
@@ -836,6 +837,98 @@ footer {
 .footer-copy a { color: rgba(245,237,227,0.45); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.25); transition: color 0.3s, border-color 0.3s; }
 .footer-copy a:hover { color: var(--gold); border-color: var(--gold); }
 .footer-heart { color: var(--rose); }
+
+/* ===== SCHEDULE ===== */
+.schedule {
+  background: var(--midnight);
+  padding: 10rem 6vw;
+  position: relative;
+}
+.schedule::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.04), transparent);
+  pointer-events: none;
+}
+.schedule-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+.schedule .section-title {
+  background: linear-gradient(135deg, var(--gold), var(--cream));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+.schedule > .schedule-inner > .section-label { display: block; text-align: center; }
+.schedule-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.05rem; margin-bottom: 4rem; text-align: center; }
+.schedule-list { display: flex; flex-direction: column; }
+.schedule-event {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: background 0.3s;
+}
+.schedule-event:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+.schedule-event:hover { background: rgba(201,168,76,0.03); }
+.event-date { text-align: center; flex-shrink: 0; }
+.event-month {
+  display: block;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+.event-day {
+  display: block;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--cream);
+}
+.event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--cream);
+  margin-bottom: 0.35rem;
+}
+.event-venue {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: rgba(245,237,227,0.42);
+  letter-spacing: 0.04em;
+}
+.event-link {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.55rem 1.1rem;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s;
+}
+.event-link:hover { background: var(--gold); color: var(--obsidian); }
+.event-link.sold-out { color: rgba(245,237,227,0.28); border-color: rgba(245,237,227,0.1); pointer-events: none; }
+.schedule-note {
+  font-style: italic;
+  color: rgba(245,237,227,0.32);
+  font-size: 0.88rem;
+  margin-top: 3rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 600px) {
+  .schedule-event { grid-template-columns: 56px 1fr; gap: 1rem; }
+  .event-link { display: none; }
+}
 
 /* ===== GSAP REVEAL TARGETS ===== */
 .g-up { opacity: 0; transform: translateY(48px); }
@@ -945,8 +1038,9 @@ footer {
   <a href="#home" class="nav-logo">Madame Anaconda</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#shop">Shop</a></li>
     <li><a href="#booking">Bookings</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#schedule">Shows</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
   <a href="#booking" class="nav-cta">Book Now</a>
@@ -1014,12 +1108,21 @@ footer {
   </div>
 </section>
 
-<!-- STATEMENT -->
-<section class="statement">
-  <p class="statement-text g-up">
-    "Drag is not a crime. It is an art form,<br>
-    a revolution, and a <span class="hl">love letter to freedom.</span>"
-  </p>
+<!-- BOOKING -->
+<section id="booking" class="booking">
+  <div class="booking-inner">
+    <span class="section-label g-up">Bookings &amp; Enquiries</span>
+    <h2 class="section-title g-up">Work With the Queen</h2>
+    <p class="booking-sub g-up">For shows, appearances, collaborations, and press — reach out directly.</p>
+    <a href="mailto:booking@madameanaconda.com" class="booking-email">booking@madameanaconda.com</a>
+    <div class="booking-tags g-up">
+      <span class="booking-tag">Live Shows</span>
+      <span class="booking-tag">Appearances</span>
+      <span class="booking-tag">Collaborations</span>
+      <span class="booking-tag">Press</span>
+      <span class="booking-tag">Pride Events</span>
+    </div>
+  </div>
 </section>
 
 <!-- SHOP -->
@@ -1059,20 +1162,47 @@ footer {
   </div>
 </section>
 
-<!-- BOOKING -->
-<section id="booking" class="booking">
-  <div class="booking-inner">
-    <span class="section-label g-up">Bookings & Enquiries</span>
-    <h2 class="section-title g-up">Work With the Queen</h2>
-    <p class="booking-sub g-up">For shows, appearances, collaborations, and press — reach out directly.</p>
-    <a href="mailto:booking@madameanaconda.com" class="booking-email">booking@madameanaconda.com</a>
-    <div class="booking-tags g-up">
-      <span class="booking-tag">Live Shows</span>
-      <span class="booking-tag">Appearances</span>
-      <span class="booking-tag">Collaborations</span>
-      <span class="booking-tag">Press</span>
-      <span class="booking-tag">Pride Events</span>
+<!-- SCHEDULE -->
+<section id="schedule" class="schedule">
+  <div class="schedule-inner">
+    <span class="section-label g-up">On Stage</span>
+    <h2 class="section-title g-up">The Court Is in Session</h2>
+    <p class="schedule-sub g-up">Upcoming shows, appearances &amp; events — don't miss a moment.</p>
+    <div class="schedule-list">
+      <div class="schedule-event g-up">
+        <div class="event-date"><span class="event-month">Jun</span><span class="event-day">14</span></div>
+        <div class="event-details">
+          <p class="event-name">Drag Extravaganza Night</p>
+          <p class="event-venue">The Velvet Room · New York, NY</p>
+        </div>
+        <a href="#" class="event-link">Tickets ↗</a>
+      </div>
+      <div class="schedule-event g-up">
+        <div class="event-date"><span class="event-month">Jun</span><span class="event-day">28</span></div>
+        <div class="event-details">
+          <p class="event-name">Pride Weekend Spectacular</p>
+          <p class="event-venue">Rainbow Stage · Chicago, IL</p>
+        </div>
+        <a href="#" class="event-link">Tickets ↗</a>
+      </div>
+      <div class="schedule-event g-up">
+        <div class="event-date"><span class="event-month">Jul</span><span class="event-day">19</span></div>
+        <div class="event-details">
+          <p class="event-name">Serpent &amp; Sequins Tour</p>
+          <p class="event-venue">The Palace Theater · Los Angeles, CA</p>
+        </div>
+        <a href="#" class="event-link">Tickets ↗</a>
+      </div>
+      <div class="schedule-event g-up">
+        <div class="event-date"><span class="event-month">Aug</span><span class="event-day">02</span></div>
+        <div class="event-details">
+          <p class="event-name">Venom &amp; Velvet — An Evening With Madame Anaconda</p>
+          <p class="event-venue">Club Midnight · Miami, FL</p>
+        </div>
+        <a href="#booking" class="event-link">Book Enquiry ↗</a>
+      </div>
     </div>
+    <p class="schedule-note g-up">More dates dropping soon — follow on Instagram for announcements.</p>
   </div>
 </section>
 
@@ -1084,24 +1214,22 @@ footer {
     <p class="connect-sub g-up">Keep up with looks, shows, and statements that matter.</p>
     <div class="social-grid">
       <a href="#" class="social-item g-up" aria-label="Instagram">
-        <div class="social-icon-wrap">📸</div>
+        <div class="social-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
         <span class="social-label">Instagram</span>
       </a>
       <a href="#" class="social-item g-up" aria-label="TikTok">
-        <div class="social-icon-wrap">🎵</div>
+        <div class="social-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
+        </div>
         <span class="social-label">TikTok</span>
       </a>
-      <a href="#" class="social-item g-up" aria-label="Twitter / X">
-        <div class="social-icon-wrap">🐦</div>
-        <span class="social-label">Twitter / X</span>
-      </a>
       <a href="#" class="social-item g-up" aria-label="YouTube">
-        <div class="social-icon-wrap">🎬</div>
+        <div class="social-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
         <span class="social-label">YouTube</span>
-      </a>
-      <a href="#" class="social-item g-up" aria-label="Patreon">
-        <div class="social-icon-wrap">💎</div>
-        <span class="social-label">Patreon</span>
       </a>
     </div>
   </div>
@@ -1110,8 +1238,6 @@ footer {
 <!-- NEWSLETTER -->
 <section class="signup">
   <div class="signup-inner">
-    <span class="section-label g-up">Get in Touch</span>
-    <h2 class="section-title g-up">Send a Message</h2>
     <div class="reach-form-wrap g-up">
       <div data-reach-form="917827e2-4401-47fb-9dbb-70ff499572cb"></div>
     </div>
