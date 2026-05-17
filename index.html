@@ -454,9 +454,34 @@ nav.visible {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7rem;
-  align-items: center;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-portrait {
+  position: relative;
+  overflow: hidden;
+}
+.about-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.88);
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 .about-left .section-title {
   background: linear-gradient(135deg, var(--cream), rgba(245,237,227,0.5));
@@ -882,16 +907,40 @@ footer {
   background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.04), transparent);
   pointer-events: none;
 }
-.schedule-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+.schedule-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.schedule-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+.schedule-visual {
+  position: relative;
+  overflow: hidden;
+}
+.schedule-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+.schedule-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.88);
+}
 .schedule .section-title {
   background: linear-gradient(135deg, var(--gold), var(--cream));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-align: center;
 }
-.schedule > .schedule-inner > .section-label { display: block; text-align: center; }
-.schedule-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.05rem; margin-bottom: 4rem; text-align: center; }
+.schedule-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.05rem; margin-bottom: 4rem; }
 .schedule-list { display: flex; flex-direction: column; }
 .schedule-event {
   display: grid;
@@ -966,10 +1015,11 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .about-inner, .product-card { grid-template-columns: 1fr; gap: 3rem; }
+  .about-inner, .product-card, .schedule-layout { grid-template-columns: 1fr; gap: 3rem; }
   .nav-links { display: none; }
   nav { padding: 1.2rem 5vw; }
   .product-card { padding: 2.5rem; }
+  .schedule-visual { max-height: 420px; }
 }
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(2.6rem, 13vw, 4.5rem); }
@@ -1112,23 +1162,28 @@ footer {
 <!-- ABOUT -->
 <section id="about" class="about">
   <div class="about-inner">
-    <div class="about-left">
-      <span class="section-label g-up">The Legend Herself</span>
-      <h2 class="section-title g-up">Born to Reign</h2>
-      <div class="about-text g-up">
-        <p>Madame Anaconda doesn't walk into a room — <strong>she arrives.</strong> With venomous wit, a heart of gold, and looks that could stop traffic on a six-lane freeway, she's redefined what it means to be a drag queen.</p>
-        <p>From underground cabarets to sold-out shows, Madame Anaconda brings the heat, the glamour, and the message: <strong>drag is not a crime, darling.</strong></p>
-        <p>Part artist, part activist, all queen — here to entertain, inspire, and remind you the world is better when we let people be beautifully, unapologetically themselves.</p>
-      </div>
+    <div class="about-portrait g-up">
+      <img src="assets/IMG_7366.jpeg" alt="Madame Anaconda" loading="lazy">
     </div>
-    <div class="about-right">
-      <blockquote class="about-quote g-up">
-        "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
-      </blockquote>
-      <div class="about-stats g-up">
-        <div><span class="stat-value" style="font-size:clamp(2.4rem,4vw,3.4rem)">∞</span><span class="stat-label">Looks Served</span></div>
-        <div><span class="stat-value">0</span><span class="stat-label">F*cks Given</span></div>
-        <div><span class="stat-value">100%</span><span class="stat-label">That Girl</span></div>
+    <div class="about-content">
+      <div class="about-left">
+        <span class="section-label g-up">The Legend Herself</span>
+        <h2 class="section-title g-up">Born to Reign</h2>
+        <div class="about-text g-up">
+          <p>Madame Anaconda doesn't walk into a room — <strong>she arrives.</strong> With venomous wit, a heart of gold, and looks that could stop traffic on a six-lane freeway, she's redefined what it means to be a drag queen.</p>
+          <p>From underground cabarets to sold-out shows, Madame Anaconda brings the heat, the glamour, and the message: <strong>drag is not a crime, darling.</strong></p>
+          <p>Part artist, part activist, all queen — here to entertain, inspire, and remind you the world is better when we let people be beautifully, unapologetically themselves.</p>
+        </div>
+      </div>
+      <div class="about-right">
+        <blockquote class="about-quote g-up">
+          "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
+        </blockquote>
+        <div class="about-stats g-up">
+          <div><span class="stat-value" style="font-size:clamp(2.4rem,4vw,3.4rem)">∞</span><span class="stat-label">Looks Served</span></div>
+          <div><span class="stat-value">0</span><span class="stat-label">F*cks Given</span></div>
+          <div><span class="stat-value">100%</span><span class="stat-label">That Girl</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1191,20 +1246,27 @@ footer {
 <!-- SCHEDULE -->
 <section id="schedule" class="schedule">
   <div class="schedule-inner">
-    <span class="section-label g-up">On Stage</span>
-    <h2 class="section-title g-up">The Court Is in Session</h2>
-    <p class="schedule-sub g-up">Upcoming shows, appearances &amp; events — don't miss a moment.</p>
-    <div class="schedule-list">
-      <div class="schedule-event g-up">
-        <div class="event-date"><span class="event-month">Summer</span><span class="event-day" style="font-size:1.3rem;line-height:1.2">2026</span></div>
-        <div class="event-details">
-          <p class="event-name">Select Engagements</p>
-          <p class="event-venue"><a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-venue-link">The Woods Campground</a></p>
+    <div class="schedule-layout">
+      <div class="schedule-visual g-up">
+        <img src="assets/IMG_7365.jpeg" alt="Madame Anaconda performing" loading="lazy">
+      </div>
+      <div class="schedule-content">
+        <span class="section-label g-up">On Stage</span>
+        <h2 class="section-title g-up">The Court Is in Session</h2>
+        <p class="schedule-sub g-up">Upcoming shows, appearances &amp; events — don't miss a moment.</p>
+        <div class="schedule-list">
+          <div class="schedule-event g-up">
+            <div class="event-date"><span class="event-month">Jun</span><span class="event-day">13</span></div>
+            <div class="event-details">
+              <p class="event-name">Pride Show</p>
+              <p class="event-venue"><a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-venue-link">The Woods Campground</a></p>
+            </div>
+            <a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-link">Visit Site ↗</a>
+          </div>
         </div>
-        <a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-link">Visit Site ↗</a>
+        <p class="schedule-note g-up">More dates dropping soon — follow on TikTok for announcements.</p>
       </div>
     </div>
-    <p class="schedule-note g-up">More dates dropping soon — follow on Instagram for announcements.</p>
   </div>
 </section>
 
