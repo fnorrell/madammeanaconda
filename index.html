@@ -706,7 +706,6 @@ nav.visible {
 .booking {
   background: linear-gradient(135deg, var(--midnight), var(--slate));
   padding: 6rem 6vw;
-  text-align: center;
   position: relative;
 }
 .booking::before {
@@ -715,7 +714,37 @@ nav.visible {
   inset: 0;
   background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(124,58,237,0.07), transparent);
 }
-.booking-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+.booking-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.booking-inner { }
+.booking-visual {
+  position: relative;
+  overflow: hidden;
+}
+.booking-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+.booking-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.88);
+}
 .booking .section-title {
   font-size: clamp(2rem, 6vw, 5rem);
   background: linear-gradient(135deg, var(--cream), var(--gold));
@@ -763,7 +792,6 @@ nav.visible {
 .connect {
   background: var(--obsidian);
   padding: 6rem 6vw;
-  text-align: center;
   position: relative;
 }
 .connect::before {
@@ -772,14 +800,58 @@ nav.visible {
   inset: 0;
   background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(74,157,122,0.06), transparent);
 }
-.connect-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.connect-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.connect-inner { }
+.connect-visual {
+  position: relative;
+  overflow: hidden;
+}
+.connect-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+.connect-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.88);
+}
 .connect .section-title {
   background: linear-gradient(135deg, var(--sage), var(--cream));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 4rem; }
+.connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 2rem; }
+.connect-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.tiktok-inline {
+  display: flex;
+  align-items: center;
+  color: rgba(245,237,227,0.45);
+  text-decoration: none;
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+.tiktok-inline:hover { color: var(--gold); }
 .social-grid { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin: 0 auto; }
 .event-venue-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: color 0.3s, border-color 0.3s; }
 .event-venue-link:hover { color: var(--cream); border-color: var(--cream); }
@@ -1020,11 +1092,12 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .about-inner, .product-card, .schedule-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .about-inner, .product-card, .schedule-layout, .booking-layout, .connect-layout { grid-template-columns: 1fr; gap: 3rem; }
   .nav-links { display: none; }
   nav { padding: 1.2rem 5vw; }
   .product-card { padding: 2.5rem; }
-  .schedule-visual { max-height: 420px; }
+  .schedule-visual, .booking-visual, .connect-visual { max-height: 420px; }
+  .connect-layout .connect-visual { order: -1; }
 }
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(2.6rem, 13vw, 4.5rem); }
@@ -1196,17 +1269,22 @@ footer {
 
 <!-- BOOKING -->
 <section id="booking" class="booking">
-  <div class="booking-inner">
-    <span class="section-label g-up">Bookings &amp; Enquiries</span>
-    <h2 class="section-title g-up">Work With the Queen</h2>
-    <p class="booking-sub g-up">For shows, appearances, collaborations, and press — reach out directly.</p>
-    <a href="mailto:booking@madameanaconda.com" class="booking-email">booking@madameanaconda.com</a>
-    <div class="booking-tags g-up">
-      <span class="booking-tag">Live Shows</span>
-      <span class="booking-tag">Appearances</span>
-      <span class="booking-tag">Collaborations</span>
-      <span class="booking-tag">Press</span>
-      <span class="booking-tag">Pride Events</span>
+  <div class="booking-layout">
+    <div class="booking-inner">
+      <span class="section-label g-up">Bookings &amp; Enquiries</span>
+      <h2 class="section-title g-up">Work With the Queen</h2>
+      <p class="booking-sub g-up">For shows, appearances, collaborations, and press — reach out directly.</p>
+      <a href="mailto:booking@madameanaconda.com" class="booking-email">booking@madameanaconda.com</a>
+      <div class="booking-tags g-up">
+        <span class="booking-tag">Live Shows</span>
+        <span class="booking-tag">Appearances</span>
+        <span class="booking-tag">Collaborations</span>
+        <span class="booking-tag">Press</span>
+        <span class="booking-tag">Pride Events</span>
+      </div>
+    </div>
+    <div class="booking-visual g-up">
+      <img src="assets/IMG_7363.jpeg" alt="Madame Anaconda" loading="lazy">
     </div>
   </div>
 </section>
@@ -1277,17 +1355,19 @@ footer {
 
 <!-- CONNECT -->
 <section id="connect" class="connect">
-  <div class="connect-inner">
-    <span class="section-label g-up">Stay in the Serpent's Circle</span>
-    <h2 class="section-title g-up">Follow the Queen</h2>
-    <p class="connect-sub g-up">Keep up with looks, shows, and statements that matter.</p>
-    <div class="social-grid">
-      <a href="https://www.tiktok.com/@madameanaconde" target="_blank" rel="noopener" class="social-item g-up" aria-label="TikTok">
-        <div class="social-icon-wrap">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
-        </div>
-        <span class="social-label">TikTok</span>
-      </a>
+  <div class="connect-layout">
+    <div class="connect-visual g-up">
+      <img src="assets/IMG_7362.jpeg" alt="Madame Anaconda" loading="lazy">
+    </div>
+    <div class="connect-inner">
+      <span class="section-label g-up">Stay in the Serpent's Circle</span>
+      <div class="connect-heading-row">
+        <h2 class="section-title g-up">Follow the Queen</h2>
+        <a href="https://www.tiktok.com/@madameanaconde" target="_blank" rel="noopener" class="tiktok-inline g-up" aria-label="TikTok">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
+        </a>
+      </div>
+      <p class="connect-sub g-up">Keep up with looks, shows, and statements that matter.</p>
     </div>
   </div>
 </section>
