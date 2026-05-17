@@ -129,12 +129,13 @@ body::before {
 }
 .intro-name {
   display: flex;
-  overflow: hidden;
   justify-content: center;
   margin: 0.15rem 0;
   position: relative;
   font-size: clamp(2.8rem, 9vw, 8.5rem);
   padding-bottom: 0.2em;
+  /* clip vertically (hides letters during slide-up) but allow horizontal serif bleed */
+  clip-path: inset(0 -40px 0 -40px);
 }
 .intro-letter {
   display: inline-block;
