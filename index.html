@@ -423,7 +423,7 @@ nav.visible {
 /* ===== ABOUT ===== */
 .about {
   background: linear-gradient(180deg, var(--obsidian), var(--midnight));
-  padding: 10rem 6vw;
+  padding: 6rem 6vw;
 }
 .about-inner {
   max-width: 1200px;
@@ -523,7 +523,7 @@ nav.visible {
 /* ===== SHOP ===== */
 .shop {
   background: var(--obsidian);
-  padding: 10rem 6vw;
+  padding: 6rem 6vw;
 }
 .shop-inner   { max-width: 1100px; margin: 0 auto; }
 .shop-header  { text-align: center; margin-bottom: 5rem; }
@@ -646,7 +646,7 @@ nav.visible {
 /* ===== BOOKING ===== */
 .booking {
   background: linear-gradient(135deg, var(--midnight), var(--slate));
-  padding: 11rem 6vw;
+  padding: 6rem 6vw;
   text-align: center;
   position: relative;
 }
@@ -703,7 +703,7 @@ nav.visible {
 /* ===== CONNECT ===== */
 .connect {
   background: var(--obsidian);
-  padding: 10rem 6vw;
+  padding: 6rem 6vw;
   text-align: center;
   position: relative;
 }
@@ -721,7 +721,9 @@ nav.visible {
   background-clip: text;
 }
 .connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 4rem; }
-.social-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+.social-grid { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin: 0 auto; }
+.event-venue-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: color 0.3s, border-color 0.3s; }
+.event-venue-link:hover { color: var(--cream); border-color: var(--cream); }
 .social-item {
   display: flex;
   flex-direction: column;
@@ -757,7 +759,7 @@ nav.visible {
 /* ===== SIGNUP ===== */
 .signup {
   background: linear-gradient(135deg, var(--midnight), var(--obsidian));
-  padding: 9rem 6vw;
+  padding: 5rem 6vw;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -841,7 +843,7 @@ footer {
 /* ===== SCHEDULE ===== */
 .schedule {
   background: var(--midnight);
-  padding: 10rem 6vw;
+  padding: 6rem 6vw;
   position: relative;
 }
 .schedule::before {
@@ -1075,13 +1077,8 @@ footer {
       <a href="#about" class="btn btn-ghost"><span>Meet the Queen</span></a>
     </div>
   </div>
-  <div class="scroll-indicator"><span>Scroll</span></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marqueeTrack"></div>
-</div>
 
 <!-- ABOUT -->
 <section id="about" class="about">
@@ -1100,7 +1097,7 @@ footer {
         "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
       </blockquote>
       <div class="about-stats g-up">
-        <div><span class="stat-value">∞</span><span class="stat-label">Looks Served</span></div>
+        <div><span class="stat-value" style="font-size:clamp(2.4rem,4vw,3.4rem)">∞</span><span class="stat-label">Looks Served</span></div>
         <div><span class="stat-value">0</span><span class="stat-label">F*cks Given</span></div>
         <div><span class="stat-value">100%</span><span class="stat-label">That Girl</span></div>
       </div>
@@ -1170,36 +1167,12 @@ footer {
     <p class="schedule-sub g-up">Upcoming shows, appearances &amp; events — don't miss a moment.</p>
     <div class="schedule-list">
       <div class="schedule-event g-up">
-        <div class="event-date"><span class="event-month">Jun</span><span class="event-day">14</span></div>
+        <div class="event-date"><span class="event-month">Summer</span><span class="event-day" style="font-size:1.3rem;line-height:1.2">2026</span></div>
         <div class="event-details">
-          <p class="event-name">Drag Extravaganza Night</p>
-          <p class="event-venue">The Velvet Room · New York, NY</p>
+          <p class="event-name">Select Engagements</p>
+          <p class="event-venue"><a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-venue-link">The Woods Campground</a></p>
         </div>
-        <a href="#" class="event-link">Tickets ↗</a>
-      </div>
-      <div class="schedule-event g-up">
-        <div class="event-date"><span class="event-month">Jun</span><span class="event-day">28</span></div>
-        <div class="event-details">
-          <p class="event-name">Pride Weekend Spectacular</p>
-          <p class="event-venue">Rainbow Stage · Chicago, IL</p>
-        </div>
-        <a href="#" class="event-link">Tickets ↗</a>
-      </div>
-      <div class="schedule-event g-up">
-        <div class="event-date"><span class="event-month">Jul</span><span class="event-day">19</span></div>
-        <div class="event-details">
-          <p class="event-name">Serpent &amp; Sequins Tour</p>
-          <p class="event-venue">The Palace Theater · Los Angeles, CA</p>
-        </div>
-        <a href="#" class="event-link">Tickets ↗</a>
-      </div>
-      <div class="schedule-event g-up">
-        <div class="event-date"><span class="event-month">Aug</span><span class="event-day">02</span></div>
-        <div class="event-details">
-          <p class="event-name">Venom &amp; Velvet — An Evening With Madame Anaconda</p>
-          <p class="event-venue">Club Midnight · Miami, FL</p>
-        </div>
-        <a href="#booking" class="event-link">Book Enquiry ↗</a>
+        <a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-link">Visit Site ↗</a>
       </div>
     </div>
     <p class="schedule-note g-up">More dates dropping soon — follow on Instagram for announcements.</p>
@@ -1275,15 +1248,6 @@ for (let i = 0; i < 50; i++) {
   starsEl.appendChild(s);
 }
 
-// ── MARQUEE ─────────────────────────────────────────────────────────────────
-const marqueeWords = ['Drag Is Not A Crime','Madame Anaconda','Queen of Everything','Slay All Day','Born to Serve','Venom & Velvet','Unapologetically Me'];
-const track = document.getElementById('marqueeTrack');
-[...marqueeWords, ...marqueeWords].forEach(text => {
-  const el = document.createElement('span');
-  el.className = 'marquee-item';
-  el.innerHTML = `${text}<span class="marquee-sep">◆</span>`;
-  track.appendChild(el);
-});
 
 // ── COLOR SWATCHES ────────────────────────────────────────────────────────
 const BASE = 'https://badditudeapparel.com/cdn/shop/files/';
