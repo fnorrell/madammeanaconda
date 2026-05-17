@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100vw; height: 100vh; overflow: hidden; }
+body {
+  background: #07070f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: 'Cinzel Decorative', cursive;
+}
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 50%, rgba(124,58,237,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 80% 40%, rgba(200,65,90,0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+.noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.border-frame {
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(201,168,76,0.15);
+  pointer-events: none;
+}
+.border-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(201,168,76,0.06);
+}
+.corner {
+  position: absolute;
+  width: 22px; height: 22px;
+  border-color: rgba(201,168,76,0.55);
+  border-style: solid;
+}
+.corner.tl { top: 28px; left: 28px; border-width: 2px 0 0 2px; }
+.corner.tr { top: 28px; right: 28px; border-width: 2px 2px 0 0; }
+.corner.bl { bottom: 28px; left: 28px; border-width: 0 0 2px 2px; }
+.corner.br { bottom: 28px; right: 28px; border-width: 0 2px 2px 0; }
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+.crown {
+  font-size: 3.8rem;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 28px rgba(201,168,76,0.9));
+}
+.eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.5em;
+  color: rgba(201,168,76,0.65);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.name-madame {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 900;
+  font-size: 6.4rem;
+  line-height: 0.95;
+  background: linear-gradient(135deg, #c9a84c 0%, #c8415a 45%, #7c3aed 80%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  filter: drop-shadow(0 4px 24px rgba(200,65,90,0.25));
+}
+.name-anaconda {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 900;
+  font-size: 6.4rem;
+  line-height: 0.95;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(245,237,227,0.38);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.8rem;
+}
+.divider {
+  width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8415a, #c9a84c, #c8415a, transparent);
+  margin: 0 auto 1.6rem;
+}
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: rgba(245,237,227,0.5);
+  letter-spacing: 0.15em;
+}
+.url {
+  position: absolute;
+  bottom: 48px;
+  right: 60px;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,76,0.4);
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="noise"></div>
+<div class="border-frame"></div>
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+<div class="content">
+  <div class="crown">👑</div>
+  <p class="eyebrow">The Serpent Queen Has Arrived</p>
+  <div class="name-madame">Madame</div>
+  <div class="name-anaconda">Anaconda</div>
+  <div class="divider"></div>
+  <p class="tagline">She slithers. She shimmers. She slays.</p>
+</div>
+<div class="url">madameanaconda.com</div>
+</body>
+</html>

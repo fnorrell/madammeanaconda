@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madame Anaconda — Queen of Everything</title>
+
+<!-- Open Graph / Link Preview -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://madameanaconda.com/">
+<meta property="og:title"       content="Madame Anaconda — Queen of Everything">
+<meta property="og:description" content="She slithers. She shimmers. She slays. Drag performer, activist, icon.">
+<meta property="og:image"       content="https://madameanaconda.com/assets/og-image.png">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Madame Anaconda — Queen of Everything">
+<meta name="twitter:description" content="She slithers. She shimmers. She slays. Drag performer, activist, icon.">
+<meta name="twitter:image"       content="https://madameanaconda.com/assets/og-image.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1TMW3MPFC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q1TMW3MPFC');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:    #c8415a;
+  --plum:    #7c3aed;
+  --gold:    #c9a84c;
+  --sage:    #4a9d7a;
+  --obsidian:#07070f;
+  --midnight:#0f0f1c;
+  --slate:   #181828;
+  --cream:   #f5ede3;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--obsidian);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.35;
+}
+
+/* ===== CURSOR ===== */
+#cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: transform 0.1s;
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s, height 0.35s, border-color 0.35s;
+}
+.cursor-grow #cursor-ring { width: 58px; height: 58px; border-color: var(--gold); }
+
+/* ===== INTRO ===== */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: var(--obsidian);
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.intro-line {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+.intro-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  letter-spacing: 0.6em;
+  color: rgba(201,168,76,0.6);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+.intro-crown {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  opacity: 0;
+  display: block;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 30px rgba(201,168,76,0.9));
+}
+.intro-name {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  margin: 0.15rem 0;
+}
+.intro-letter {
+  display: inline-block;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(2.8rem, 9vw, 8.5rem);
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(110%);
+}
+.intro-name.top .intro-letter {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--rose) 50%, var(--plum) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.intro-name.bottom .intro-letter {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245,237,227,0.45);
+}
+.intro-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  color: rgba(245,237,227,0.45);
+  letter-spacing: 0.3em;
+  opacity: 0;
+  margin-top: 1.8rem;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-100%);
+  transition: background 0.4s, transform 0.5s;
+}
+nav.visible {
+  transform: translateY(0);
+  background: rgba(7,7,15,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.nav-logo {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: rgba(245,237,227,0.55);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--obsidian); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(124,58,237,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(200,65,90,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 90%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    var(--obsidian);
+  will-change: transform;
+}
+.stars { position: absolute; inset: 0; pointer-events: none; }
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+.snake-deco {
+  position: absolute;
+  width: 150px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.snake-deco.left  { left: 0; top: 12%; animation: snakeWave 14s ease-in-out infinite; }
+.snake-deco.right { right: 0; bottom: 12%; animation: snakeWave 14s ease-in-out infinite 4s; transform: scaleX(-1); }
+@keyframes snakeWave {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg); }
+}
+.snake-deco.right { animation: snakeWaveR 14s ease-in-out infinite 4s; }
+@keyframes snakeWaveR {
+  0%, 100% { transform: scaleX(-1) rotate(-4deg); }
+  50%       { transform: scaleX(-1) rotate(4deg); }
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  letter-spacing: 0.4em;
+  color: var(--sage);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-crown {
+  font-size: clamp(3rem, 6vw, 5rem);
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: crownFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(201,168,76,0.8));
+}
+@keyframes crownFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%       { transform: translateY(-14px) rotate(3deg); }
+}
+.hero-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  font-weight: 900;
+  line-height: 0.92;
+  text-align: center;
+}
+.hero-title .line1 {
+  display: block;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--rose) 45%, var(--plum) 80%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(200,65,90,0.2));
+  animation: shimmer 5s linear infinite;
+  background-size: 200% 200%;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.hero-title .line2 {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245,237,227,0.35);
+  font-size: 0.48em;
+  letter-spacing: 0.22em;
+  margin-top: 0.35em;
+}
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.7rem);
+  color: rgba(245,237,227,0.6);
+  margin-top: 2rem;
+  letter-spacing: 0.1em;
+}
+.hero-divider {
+  width: 160px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--gold), var(--rose), transparent);
+  margin: 2rem auto;
+}
+.hero-cta { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.btn {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  padding: 1rem 2.6rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.35s;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.77,0,0.18,1);
+  z-index: 0;
+}
+.btn:hover::before { transform: scaleX(1); }
+.btn:hover { color: var(--obsidian); }
+.btn span { position: relative; z-index: 1; }
+.btn-primary { background: linear-gradient(135deg, var(--rose), var(--plum)); color: var(--cream); }
+.btn-ghost   { background: transparent; color: var(--cream); border: 1px solid rgba(245,237,227,0.28); }
+.btn-ghost:hover { border-color: var(--gold); }
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.35;
+  animation: bobDown 2.2s ease-in-out infinite;
+}
+@keyframes bobDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(9px); }
+}
+.scroll-indicator span {
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.scroll-indicator::after {
+  content: '';
+  width: 1px;
+  height: 55px;
+  background: linear-gradient(var(--gold), transparent);
+}
+
+/* ===== MARQUEE ===== */
+.marquee {
+  background: var(--slate);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  overflow: hidden;
+  padding: 1.1rem 0;
+  position: relative;
+  z-index: 10;
+}
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 28s linear infinite;
+  width: max-content;
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(0.52rem, 1.1vw, 0.72rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245,237,227,0.45);
+}
+.marquee-sep { color: var(--gold); opacity: 0.45; font-size: 0.45rem; }
+
+/* ===== SECTION BASE ===== */
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.42em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.4rem;
+  opacity: 0.8;
+}
+.section-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: linear-gradient(180deg, var(--obsidian), var(--midnight));
+  padding: 6rem 6vw;
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+.about-left .section-title {
+  background: linear-gradient(135deg, var(--cream), rgba(245,237,227,0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-text {
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  line-height: 1.95;
+  color: rgba(245,237,227,0.72);
+  font-style: italic;
+}
+.about-text strong { color: var(--cream); font-style: normal; font-weight: 600; }
+.about-text p + p  { margin-top: 1.4rem; }
+.about-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.3vw, 1.9rem);
+  line-height: 1.55;
+  color: var(--cream);
+  border-left: 2px solid var(--gold);
+  padding-left: 2rem;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201,168,76,0.14);
+}
+.about-stats > div { display: flex; flex-direction: column; align-items: center; }
+.stat-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.8rem;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+.stat-label {
+  display: block;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: rgba(245,237,227,0.45);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+/* ===== STATEMENT ===== */
+.statement {
+  background: var(--slate);
+  padding: 9rem 6vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.statement::before, .statement::after {
+  content: '🐍';
+  position: absolute;
+  font-size: 9rem;
+  opacity: 0.08;
+  animation: spinSlow 22s linear infinite;
+}
+.statement::before { top: -3rem; left: -2rem; }
+.statement::after  { bottom: -3rem; right: -2rem; animation-direction: reverse; }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+.statement-text {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(1.4rem, 4.2vw, 3.4rem);
+  font-weight: 900;
+  max-width: 920px;
+  margin: 0 auto;
+  line-height: 1.45;
+  position: relative;
+  z-index: 2;
+}
+.statement-text .hl {
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== SHOP ===== */
+.shop {
+  background: var(--obsidian);
+  padding: 6rem 6vw;
+}
+.shop-inner   { max-width: 1100px; margin: 0 auto; }
+.shop-header  { text-align: center; margin-bottom: 5rem; }
+.shop-header .section-title {
+  background: linear-gradient(135deg, var(--gold), var(--cream));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  background: rgba(255,255,255,0.018);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 4rem;
+}
+.product-image-area {
+  position: relative;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(124,58,237,0.07), rgba(200,65,90,0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.product-image-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.06), transparent);
+}
+.product-image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
+}
+.product-image-area:hover img { transform: scale(1.06); }
+.swatch.active { outline: 2px solid var(--gold); outline-offset: 2px; transform: scale(1.2); }
+.product-badge {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.48rem;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.9rem;
+  background: linear-gradient(135deg, var(--rose), var(--plum));
+  color: white;
+}
+.product-info { display: flex; flex-direction: column; gap: 1.4rem; }
+.product-collab {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-style: italic;
+}
+.product-name {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--cream);
+}
+.product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.product-price small {
+  font-size: 0.85rem;
+  color: rgba(245,237,227,0.38);
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+.product-desc {
+  font-style: italic;
+  color: rgba(245,237,227,0.62);
+  line-height: 1.85;
+  font-size: 1rem;
+}
+.swatch-row { display: flex; gap: 5px; flex-wrap: wrap; }
+.swatch {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.swatch:hover { transform: scale(1.35); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+.btn-shop {
+  display: block;
+  text-align: center;
+  padding: 1.1rem 2rem;
+  background: linear-gradient(135deg, var(--plum), var(--rose));
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s, transform 0.3s;
+  margin-top: 0.5rem;
+}
+.btn-shop:hover { opacity: 0.84; transform: translateY(-2px); }
+.product-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.perk { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: rgba(245,237,227,0.45); font-style: italic; }
+
+/* ===== BOOKING ===== */
+.booking {
+  background: linear-gradient(135deg, var(--midnight), var(--slate));
+  padding: 6rem 6vw;
+  text-align: center;
+  position: relative;
+}
+.booking::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(124,58,237,0.07), transparent);
+}
+.booking-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+.booking .section-title {
+  font-size: clamp(2rem, 6vw, 5rem);
+  background: linear-gradient(135deg, var(--cream), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.booking-sub {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(245,237,227,0.5);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+.booking-email {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding-bottom: 0.3rem;
+  transition: color 0.3s, border-color 0.3s;
+}
+.booking-email:hover { color: var(--cream); border-color: var(--cream); }
+.booking-tags {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.booking-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-style: italic;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(245,237,227,0.1);
+  color: rgba(245,237,227,0.4);
+}
+
+/* ===== CONNECT ===== */
+.connect {
+  background: var(--obsidian);
+  padding: 6rem 6vw;
+  text-align: center;
+  position: relative;
+}
+.connect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(74,157,122,0.06), transparent);
+}
+.connect-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.connect .section-title {
+  background: linear-gradient(135deg, var(--sage), var(--cream));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.connect-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.1rem; margin-bottom: 4rem; }
+.social-grid { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin: 0 auto; }
+.event-venue-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: color 0.3s, border-color 0.3s; }
+.event-venue-link:hover { color: var(--cream); border-color: var(--cream); }
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.social-item:hover { transform: translateY(-10px); }
+.social-icon-wrap {
+  width: 96px; height: 96px;
+  border: 1px solid rgba(245,237,227,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.social-icon-wrap svg { color: rgba(245,237,227,0.65); transition: color 0.3s; }
+.social-item:hover .social-icon-wrap svg { color: var(--gold); }
+.social-item:hover .social-icon-wrap {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(201,168,76,0.05);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+.social-label {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  color: rgba(245,237,227,0.38);
+  text-transform: uppercase;
+}
+
+/* ===== SIGNUP ===== */
+.signup {
+  background: linear-gradient(135deg, var(--midnight), var(--obsidian));
+  padding: 5rem 6vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.signup::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 700px; height: 700px;
+  border: 1px solid rgba(201,168,76,0.04);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.signup-inner { max-width: 520px; margin: 0 auto; position: relative; z-index: 2; }
+.signup .section-title {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  background: linear-gradient(135deg, var(--plum), var(--rose), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: shimmer 4s linear infinite;
+}
+.signup-sub { font-style: italic; color: rgba(245,237,227,0.45); margin: 1rem 0 2.5rem; }
+.signup-form { display: flex; max-width: 420px; margin: 0 auto; }
+.signup-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-right: none;
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.signup-input::placeholder { color: rgba(245,237,227,0.28); font-style: italic; }
+.signup-input:focus { border-color: rgba(201,168,76,0.5); }
+.signup-btn {
+  padding: 1rem 1.4rem;
+  background: var(--gold);
+  color: var(--obsidian);
+  border: none;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+.signup-btn:hover { background: var(--cream); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--obsidian);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 2.5rem 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-copy { font-style: italic; font-size: 0.95rem; color: rgba(245,237,227,0.28); }
+.footer-copy a { color: rgba(245,237,227,0.45); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.25); transition: color 0.3s, border-color 0.3s; }
+.footer-copy a:hover { color: var(--gold); border-color: var(--gold); }
+.footer-heart { color: var(--rose); }
+
+/* ===== SCHEDULE ===== */
+.schedule {
+  background: var(--midnight);
+  padding: 6rem 6vw;
+  position: relative;
+}
+.schedule::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.04), transparent);
+  pointer-events: none;
+}
+.schedule-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+.schedule .section-title {
+  background: linear-gradient(135deg, var(--gold), var(--cream));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+.schedule > .schedule-inner > .section-label { display: block; text-align: center; }
+.schedule-sub { font-style: italic; color: rgba(245,237,227,0.48); font-size: 1.05rem; margin-bottom: 4rem; text-align: center; }
+.schedule-list { display: flex; flex-direction: column; }
+.schedule-event {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: background 0.3s;
+}
+.schedule-event:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+.schedule-event:hover { background: rgba(201,168,76,0.03); }
+.event-date { text-align: center; flex-shrink: 0; }
+.event-month {
+  display: block;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+.event-day {
+  display: block;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--cream);
+}
+.event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--cream);
+  margin-bottom: 0.35rem;
+}
+.event-venue {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: rgba(245,237,227,0.42);
+  letter-spacing: 0.04em;
+}
+.event-link {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.55rem 1.1rem;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s;
+}
+.event-link:hover { background: var(--gold); color: var(--obsidian); }
+.event-link.sold-out { color: rgba(245,237,227,0.28); border-color: rgba(245,237,227,0.1); pointer-events: none; }
+.schedule-note {
+  font-style: italic;
+  color: rgba(245,237,227,0.32);
+  font-size: 0.88rem;
+  margin-top: 3rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 600px) {
+  .schedule-event { grid-template-columns: 56px 1fr; gap: 1rem; }
+  .event-link { display: none; }
+}
+
+/* ===== GSAP REVEAL TARGETS ===== */
+.g-up { opacity: 0; transform: translateY(48px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-inner, .product-card { grid-template-columns: 1fr; gap: 3rem; }
+  .nav-links { display: none; }
+  nav { padding: 1.2rem 5vw; }
+  .product-card { padding: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: clamp(2.6rem, 13vw, 4.5rem); }
+  .intro-letter { font-size: clamp(2.2rem, 11vw, 4rem); }
+  .hero-cta { flex-direction: column; align-items: center; }
+  footer { flex-direction: column; text-align: center; }
+  .about { padding: 7rem 6vw; }
+}
+@media (hover: none) {
+  #cursor-dot, #cursor-ring { display: none; }
+  body { cursor: default; }
+}
+
+/* ===== REACH CONTACT FORM ===== */
+.reach-form-wrap {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Override Reach form typography to match site */
+[data-reach-form],
+[data-reach-form] * {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+}
+[data-reach-form] h1,
+[data-reach-form] h2,
+[data-reach-form] h3,
+[data-reach-form] [class*="title"],
+[data-reach-form] [class*="heading"] {
+  font-family: 'Cinzel Decorative', cursive !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.05em !important;
+}
+[data-reach-form] [class*="label"],
+[data-reach-form] label {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--gold) !important;
+  font-size: 0.75rem !important;
+}
+[data-reach-form] [class*="description"],
+[data-reach-form] p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+  color: rgba(245,237,227,0.6) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+}
+[data-reach-form] input[type="email"],
+[data-reach-form] input[type="text"],
+[data-reach-form] textarea {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  border-radius: 0 !important;
+  color: var(--cream) !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1rem !important;
+}
+[data-reach-form] button[type="submit"],
+[data-reach-form] [class*="submit"],
+[data-reach-form] [class*="button"] {
+  background: linear-gradient(135deg, var(--plum), var(--rose)) !important;
+  border-radius: 0 !important;
+  font-family: 'Cinzel Decorative', cursive !important;
+  letter-spacing: 0.2em !important;
+  font-size: 0.6rem !important;
+  text-transform: uppercase !important;
+  border: none !important;
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- INTRO -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-line" id="introLine"></div>
+  <p class="intro-eyebrow">Presenting… the one, the only</p>
+  <span class="intro-crown" id="introCrown">👑</span>
+  <div class="intro-name top" id="introMadame"></div>
+  <div class="intro-name bottom" id="introAnaconda"></div>
+  <p class="intro-tagline">She slithers. She shimmers. She slays.</p>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">Madame Anaconda</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#booking">Bookings</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#schedule">Shows</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="stars" id="stars"></div>
+  <svg class="snake-deco left" viewBox="0 0 100 400" fill="none">
+    <path d="M50 0 Q80 50 50 100 Q20 150 50 200 Q80 250 50 300 Q20 350 50 400" stroke="rgba(74,157,122,0.65)" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="0" r="7" fill="rgba(74,157,122,0.55)"/>
+    <polygon points="45,400 55,400 50,415" fill="rgba(74,157,122,0.55)"/>
+  </svg>
+  <svg class="snake-deco right" viewBox="0 0 100 400" fill="none">
+    <path d="M50 0 Q80 50 50 100 Q20 150 50 200 Q80 250 50 300 Q20 350 50 400" stroke="rgba(200,65,90,0.65)" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="0" r="7" fill="rgba(200,65,90,0.55)"/>
+    <polygon points="45,400 55,400 50,415" fill="rgba(200,65,90,0.55)"/>
+  </svg>
+  <div class="hero-content" id="heroContent">
+    <p class="hero-eyebrow">The Serpent Queen Has Arrived</p>
+    <span class="hero-crown">👑</span>
+    <h1 class="hero-title">
+      <span class="line1">Madame</span>
+      <span class="line1">Anaconda</span>
+      <span class="line2">Queen · Icon · Legend</span>
+    </h1>
+    <p class="hero-tagline">She slithers. She shimmers. She slays.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-cta">
+      <a href="#shop"  class="btn btn-primary"><span>Shop the Look</span></a>
+      <a href="#about" class="btn btn-ghost"><span>Meet the Queen</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <span class="section-label g-up">The Legend Herself</span>
+      <h2 class="section-title g-up">Born to Reign</h2>
+      <div class="about-text g-up">
+        <p>Madame Anaconda doesn't walk into a room — <strong>she arrives.</strong> With venomous wit, a heart of gold, and looks that could stop traffic on a six-lane freeway, she's redefined what it means to be a drag queen.</p>
+        <p>From underground cabarets to sold-out shows, Madame Anaconda brings the heat, the glamour, and the message: <strong>drag is not a crime, darling.</strong></p>
+        <p>Part artist, part activist, all queen — here to entertain, inspire, and remind you the world is better when we let people be beautifully, unapologetically themselves.</p>
+      </div>
+    </div>
+    <div class="about-right">
+      <blockquote class="about-quote g-up">
+        "Drag is not a crime. It is an art form, a revolution, and a love letter to freedom."
+      </blockquote>
+      <div class="about-stats g-up">
+        <div><span class="stat-value" style="font-size:clamp(2.4rem,4vw,3.4rem)">∞</span><span class="stat-label">Looks Served</span></div>
+        <div><span class="stat-value">0</span><span class="stat-label">F*cks Given</span></div>
+        <div><span class="stat-value">100%</span><span class="stat-label">That Girl</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="booking">
+  <div class="booking-inner">
+    <span class="section-label g-up">Bookings &amp; Enquiries</span>
+    <h2 class="section-title g-up">Work With the Queen</h2>
+    <p class="booking-sub g-up">For shows, appearances, collaborations, and press — reach out directly.</p>
+    <a href="mailto:booking@madameanaconda.com" class="booking-email">booking@madameanaconda.com</a>
+    <div class="booking-tags g-up">
+      <span class="booking-tag">Live Shows</span>
+      <span class="booking-tag">Appearances</span>
+      <span class="booking-tag">Collaborations</span>
+      <span class="booking-tag">Press</span>
+      <span class="booking-tag">Pride Events</span>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="shop">
+  <div class="shop-inner">
+    <header class="shop-header">
+      <span class="section-label g-up">Official Merchandise</span>
+      <h2 class="section-title g-up">Wear the Statement</h2>
+      <p class="g-up" style="font-style:italic;color:rgba(245,237,227,0.48);font-size:1.05rem;margin-top:-1rem;">Exclusive merch from Badditude Apparel — because your wardrobe deserves the revolution.</p>
+    </header>
+    <div class="product-card g-up">
+      <div class="product-image-area">
+        <img id="shirtImg"
+          src="https://badditudeapparel.com/cdn/shop/files/drag-is-not-a-crime-madame-anaconda-t-shirt-lilac-front-69e4009d62fc4.jpg?v=1776550206&width=800"
+          alt="Drag Is Not A Crime — Madame Anaconda Shirt in Lilac"
+          loading="lazy">
+        <div class="product-badge">Limited Edition</div>
+      </div>
+      <div class="product-info">
+        <p class="product-collab">✦ Official Collaboration · Badditude Apparel</p>
+        <h3 class="product-name">Drag Is Not A Crime<br>— Madame Anaconda Shirt</h3>
+        <div class="product-price">$29.99 <small>+ free shipping over $75</small></div>
+        <p class="product-desc">A bold statement tee with venomous energy and a message the world needs to hear. Soft, premium unisex cut available in 30 jaw-dropping colors. Wear it loud. Wear it proud.</p>
+        <div>
+          <p style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,227,0.38);margin-bottom:0.6rem;">Color — <span id="colorLabel" style="color:var(--gold)">Lilac</span></p>
+          <div class="swatch-row" id="colorSwatches"></div>
+        </div>
+        <a href="https://badditudeapparel.com/products/drag-is-not-a-crime-madame-anaconda-shirt" target="_blank" rel="noopener" class="btn-shop">Buy Now on Badditude Apparel ↗</a>
+        <div class="product-perks">
+          <div class="perk"><span>🚚</span> Free standard shipping on orders $75+</div>
+          <div class="perk"><span>↩️</span> 30-day hassle-free returns</div>
+          <div class="perk"><span>🐍</span> Official Madame Anaconda collab</div>
+          <div class="perk"><span>🌈</span> Ships worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="schedule">
+  <div class="schedule-inner">
+    <span class="section-label g-up">On Stage</span>
+    <h2 class="section-title g-up">The Court Is in Session</h2>
+    <p class="schedule-sub g-up">Upcoming shows, appearances &amp; events — don't miss a moment.</p>
+    <div class="schedule-list">
+      <div class="schedule-event g-up">
+        <div class="event-date"><span class="event-month">Summer</span><span class="event-day" style="font-size:1.3rem;line-height:1.2">2026</span></div>
+        <div class="event-details">
+          <p class="event-name">Select Engagements</p>
+          <p class="event-venue"><a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-venue-link">The Woods Campground</a></p>
+        </div>
+        <a href="https://www.thewoodscampground.com" target="_blank" rel="noopener" class="event-link">Visit Site ↗</a>
+      </div>
+    </div>
+    <p class="schedule-note g-up">More dates dropping soon — follow on Instagram for announcements.</p>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect" class="connect">
+  <div class="connect-inner">
+    <span class="section-label g-up">Stay in the Serpent's Circle</span>
+    <h2 class="section-title g-up">Follow the Queen</h2>
+    <p class="connect-sub g-up">Keep up with looks, shows, and statements that matter.</p>
+    <div class="social-grid">
+      <a href="https://www.tiktok.com/@madameanaconde" target="_blank" rel="noopener" class="social-item g-up" aria-label="TikTok">
+        <div class="social-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.54V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
+        </div>
+        <span class="social-label">TikTok</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="signup">
+  <div class="signup-inner">
+    <div class="reach-form-wrap g-up">
+      <div data-reach-form="917827e2-4401-47fb-9dbb-70ff499572cb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Madame Anaconda</span>
+  <p class="footer-copy">&copy; 2026 madameanaconda.com &nbsp;·&nbsp; Made with <span class="footer-heart">♥</span> &amp; venom by <a href="https://softseasdigital.com" target="_blank" rel="noopener">Softseas Digital</a> &nbsp;·&nbsp; Drag Is Not A Crime</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ── LENIS ──────────────────────────────────────────────────────────────────
+const lenis = new Lenis({
+  duration: 1.4,
+  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true,
+});
+function raf(t) { lenis.raf(t); ScrollTrigger.update(); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+// ── STARS ──────────────────────────────────────────────────────────────────
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 50; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = Math.random() > 0.75 ? 4 : 2;
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;--d:${1+Math.random()*3}s;--delay:${Math.random()*5}s;background:${Math.random()>.5?'rgba(255,255,255,0.72)':'rgba(201,168,76,0.5)'};`;
+  starsEl.appendChild(s);
+}
+
+
+// ── COLOR SWATCHES ────────────────────────────────────────────────────────
+const BASE = 'https://badditudeapparel.com/cdn/shop/files/';
+const shirtColors = [
+  { name: 'Lilac',            hex: '#c8a2c8', img: BASE + 'drag-is-not-a-crime-madame-anaconda-t-shirt-lilac-front-69e4009d62fc4.jpg?v=1776550206&width=800' },
+  { name: 'Vintage Black',    hex: '#1a1a1a', img: BASE + 'unisex-staple-t-shirt-vintage-black-front-69e4009d8359f.jpg?v=1776550125&width=800' },
+  { name: 'Navy',             hex: '#1f305e', img: BASE + 'unisex-staple-t-shirt-navy-front-69e4009d850f2.jpg?v=1776550125&width=800' },
+  { name: 'Heather Navy',     hex: '#4a5568', img: BASE + 'unisex-staple-t-shirt-heather-navy-front-69e4009d8e394.jpg?v=1776550125&width=800' },
+  { name: 'Military Green',   hex: '#4a5240', img: BASE + 'unisex-staple-t-shirt-military-green-front-69e4009da1b6e.jpg?v=1776550125&width=800' },
+  { name: 'Dark Grey Heather',hex: '#5a5a5a', img: BASE + 'unisex-staple-t-shirt-dark-grey-heather-front-69e4009d96abc.jpg?v=1776550125&width=800' },
+  { name: 'Red',              hex: '#c0392b', img: BASE + 'unisex-staple-t-shirt-red-front-69e4009d886e2.jpg?v=1776550125&width=800' },
+  { name: 'Athletic Heather', hex: '#b0b0b0', img: BASE + 'unisex-staple-t-shirt-athletic-heather-front-69e4009db4c53.jpg?v=1776550125&width=800', light: true },
+  { name: 'White',            hex: '#f0f0f0', img: BASE + 'unisex-staple-t-shirt-white-front-69e4009dc6bec.jpg?v=1776550125&width=800', light: true },
+];
+const swatchWrap = document.getElementById('colorSwatches');
+const colorLabel = document.getElementById('colorLabel');
+const shirtImg   = document.getElementById('shirtImg');
+shirtColors.forEach((c, i) => {
+  const d = document.createElement('div');
+  d.className = 'swatch' + (i === 0 ? ' active' : '');
+  d.style.background = c.hex;
+  d.title = c.name;
+  if (c.light) d.style.border = '1px solid rgba(255,255,255,0.25)';
+  d.addEventListener('click', () => {
+    shirtImg.style.opacity = '0';
+    setTimeout(() => {
+      shirtImg.src = c.img;
+      shirtImg.alt = `Drag Is Not A Crime — Madame Anaconda Shirt in ${c.name}`;
+      shirtImg.style.opacity = '1';
+    }, 200);
+    colorLabel.textContent = c.name;
+    swatchWrap.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    d.classList.add('active');
+  });
+  swatchWrap.appendChild(d);
+});
+
+// ── INTRO ─────────────────────────────────────────────────────────────────
+function buildLetters(id, word) {
+  const el = document.getElementById(id);
+  word.split('').forEach(ch => {
+    const s = document.createElement('span');
+    s.className = 'intro-letter';
+    s.textContent = ch;
+    el.appendChild(s);
+  });
+  return el.querySelectorAll('.intro-letter');
+}
+const mLetters = buildLetters('introMadame', 'MADAME');
+const aLetters = buildLetters('introAnaconda', 'ANACONDA');
+
+const introTL = gsap.timeline({ onComplete: exitIntro });
+introTL
+  .to('#introLine',      { scaleX: 1, opacity: 0.4, duration: 0.7, ease: 'power3.inOut' }, 0)
+  .to('.intro-eyebrow',  { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.2)
+  .to('#introCrown',     { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'back.out(1.8)' }, 0.4)
+  .to(mLetters,          { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power3.out' }, 0.8)
+  .to(aLetters,          { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out' }, 1.2)
+  .to('.intro-tagline',  { opacity: 1, duration: 0.8, ease: 'power2.out' }, 2.0)
+  .to({}, { duration: 1.1 }); // hold
+
+function exitIntro() {
+  const tl = gsap.timeline({
+    onComplete: () => {
+      document.getElementById('intro').style.display = 'none';
+      initPage();
+    }
+  });
+  tl.to('#intro', { opacity: 0, duration: 0.9, ease: 'power2.inOut' })
+    .fromTo('#heroContent > *',
+      { y: 45, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.11, duration: 0.85, ease: 'power3.out' },
+      '-=0.35'
+    );
+  document.getElementById('mainNav').classList.add('visible');
+}
+
+// ── PAGE INIT (runs after intro) ──────────────────────────────────────────
+function initPage() {
+  // Hero parallax
+  gsap.to('#heroBg', {
+    yPercent: 35,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+  });
+
+  // Generic scroll-up reveals
+  document.querySelectorAll('.g-up').forEach(el => {
+    gsap.to(el, {
+      y: 0, opacity: 1, duration: 1.05, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+    });
+  });
+
+  // Statement scrub
+  gsap.from('.statement-text', {
+    opacity: 0, scale: 0.95, duration: 1.2, ease: 'power3.out',
+    scrollTrigger: { trigger: '.statement-text', start: 'top 78%' },
+  });
+
+  // Booking email letter-spacing cinematic reveal
+  gsap.from('.booking-email', {
+    letterSpacing: '0.6em', opacity: 0, duration: 1.5, ease: 'power3.out',
+    scrollTrigger: { trigger: '.booking-email', start: 'top 82%' },
+  });
+
+  // Social stagger
+  gsap.from('.social-item', {
+    y: 40, opacity: 0, stagger: 0.1, duration: 0.85, ease: 'power3.out',
+    scrollTrigger: { trigger: '.social-grid', start: 'top 82%' },
+  });
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) document.getElementById('mainNav').classList.add('visible');
+});
+
+// ── CURSOR ────────────────────────────────────────────────────────────────
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+});
+(function cursorRaf() {
+  rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(cursorRaf);
+})();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-grow'));
+});
+
+// ── MAGNETIC BUTTONS ──────────────────────────────────────────────────────
+document.querySelectorAll('.btn, .btn-shop, .nav-cta').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.22, y: (e.clientY - r.top - r.height/2) * 0.22, duration: 0.3, ease: 'power2.out' });
+  });
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.5)' });
+  });
+});
+
+// ── SMOOTH ANCHORS ────────────────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); lenis.scrollTo(t); }
+  });
+});
+
+// ── EMAIL SIGNUP ──────────────────────────────────────────────────────────
+function handleSignup(btn) {
+  const v = document.getElementById('signupEmail').value.trim();
+  const sub  = encodeURIComponent('Newsletter Signup');
+  const body = encodeURIComponent(v ? `Please add me to the mailing list.\n\nEmail: ${v}` : 'Please add me to the mailing list.');
+  window.location.href = `mailto:booking@madameanaconda.com?subject=${sub}&body=${body}`;
+  btn.textContent = '✓ Opening Mail…';
+  setTimeout(() => { btn.textContent = 'Subscribe'; }, 3000);
+}
+</script>
+<script src="https://cdn-reach.hostinger.com/js/embed.js"></script>
+</body>
+</html>
