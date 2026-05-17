@@ -157,34 +157,7 @@ body::before {
     0 0 24px rgba(74,157,122,0.7),
     0 0 50px rgba(74,157,122,0.4);
 }
-@keyframes sageSwipe {
-  0%   { transform: translateX(-110%); opacity: 0; }
-  12%  { opacity: 1; }
-  88%  { opacity: 1; }
-  100% { transform: translateX(210%); opacity: 0; }
-}
 .intro-name.bottom {
-}
-.intro-name.bottom::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0; left: 0;
-  width: 55%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(74,157,122,0.18) 30%,
-    rgba(180,255,220,0.55) 50%,
-    rgba(74,157,122,0.18) 70%,
-    transparent 100%
-  );
-  transform: translateX(-110%);
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-.intro-name.bottom.sweep-active::after {
-  animation: sageSwipe 0.7s ease-in-out forwards;
 }
 .intro-tagline {
   font-family: 'Cormorant Garamond', serif;
@@ -1504,8 +1477,6 @@ introTL
   .to('#introCrown',     { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'back.out(1.8)' }, 0.4)
   .to(mLetters,          { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power3.out' }, 0.8)
   .to(aLetters,          { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out' }, 1.2)
-  // sage shimmer sweep across ANACONDA
-  .call(() => { document.querySelector('.intro-name.bottom').classList.add('sweep-active'); }, [], 1.92)
   // glow fades, letters settle as clean outlines
   .to(aLetters, { textShadow: '0 0 0px transparent', duration: 0.75, ease: 'power2.inOut' }, 2.05)
   .to('.intro-tagline',  { opacity: 1, duration: 0.8, ease: 'power2.out' }, 2.0)
