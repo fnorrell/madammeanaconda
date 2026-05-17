@@ -1478,7 +1478,7 @@ introTL
   .to(mLetters,          { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power3.out' }, 0.8)
   .to(aLetters,          { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out' }, 1.2)
   // glow fades, letters settle as clean outlines
-  .to(aLetters, { textShadow: '0 0 0px transparent', duration: 0.75, ease: 'power2.inOut' }, 2.05)
+  .to(aLetters, { textShadow: '0 0 0px rgba(74,157,122,0)', duration: 0.38, ease: 'power3.in' }, 1.9)
   .to('.intro-tagline',  { opacity: 1, duration: 0.8, ease: 'power2.out' }, 2.0)
   .to({}, { duration: 1.1 }); // hold
 
@@ -1486,7 +1486,7 @@ function exitIntro() {
   const tl = gsap.timeline({
     onComplete: () => {
       document.getElementById('intro').style.display = 'none';
-      initPage();
+      requestAnimationFrame(() => requestAnimationFrame(() => initPage()));
     }
   });
   tl.to('#intro', { opacity: 0, duration: 0.9, ease: 'power2.inOut' })
